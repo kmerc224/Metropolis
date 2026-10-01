@@ -50,7 +50,7 @@ jobs:
           echo "Mod version: $version"
 
       - name: Grant execute permission for gradlew
-        run: chmod +x .@command:gradlew
+        run: chmod +x ./gradlew
 
       # 仓库自带的 networkTimeout=10000 在 CI 上偶发导致 "Downloading ... failed: timeout"
       - name: Relax Gradle wrapper network timeout
@@ -59,7 +59,7 @@ jobs:
           cat gradle/wrapper/gradle-wrapper.properties
 
       - name: Build with Gradle
-        run: .@command:gradlew build --stacktrace
+        run: ./gradlew build --stacktrace
 
       - name: Collect jars
         run: |
